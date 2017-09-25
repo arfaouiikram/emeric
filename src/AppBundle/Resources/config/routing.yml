@@ -1,0 +1,96 @@
+kalitys_crm_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index}
+
+kalitys_crm_modele:
+    path:     /modèles
+    defaults: { _controller: AppBundle:Default:indexModele}
+
+kalitys_crm_cylindree:
+    path:     /cylindree
+    defaults: { _controller: AppBundle:Default:indexCylindree}
+
+kalitys_crm_puissance:
+    path:     /puissance
+    defaults: { _controller: AppBundle:Default:indexPuissance}
+
+kalitys_crm_type_moteur:
+    path:     /type_moteur
+    defaults: { _controller: AppBundle:Default:indexTypeMoteur}
+
+kalitys_crm_produit:
+    path:     /produits
+    defaults: { _controller: AppBundle:Default:indexProduit}
+
+simulation_crm_ajout_marque:
+    path:     /ajout_marque
+    defaults: { _controller: AppBundle:Default:ajoutMarque }
+
+simulation_crm_ajout_modele:
+    path:     /ajout_modele
+    defaults: { _controller: AppBundle:Default:ajoutModele }
+
+simulation_crm_ajout_cylindree:
+    path:     /ajout_cylindree
+    defaults: { _controller: AppBundle:Default:ajoutCylindree }
+
+simulation_crm_ajout_puissance:
+    path:     /ajout_puissance
+    defaults: { _controller: AppBundle:Default:ajoutPuissance }
+
+simulation_crm_ajout_type_moteur:
+    path:     /ajout_type_moteur
+    defaults: { _controller: AppBundle:Default:ajoutTypeMoteur }
+
+simulation_crm_ajout_produit:
+    path:     /ajout_produit
+    defaults: { _controller: AppBundle:Default:ajoutProduit }
+
+simulation_crm_update_marque:
+    path:     /modifer_marque/{id}
+    defaults: { _controller: AppBundle:Default:updateMarque }
+
+simulation_crm_update_modele:
+    path:     /modifer_modele/{id}
+    defaults: { _controller: AppBundle:Default:updateModele }
+
+simulation_crm_update_cylindree:
+    path:     /modifer_cylindree/{id}
+    defaults: { _controller: AppBundle:Default:updateCylindree }
+
+simulation_crm_update_puissance:
+    path:     /modifer_puissance/{id}
+    defaults: { _controller: AppBundle:Default:updatePuissance }
+
+simulation_crm_update_type_moteur:
+    path:     /modifer_type_moteur/{id}
+    defaults: { _controller: AppBundle:Default:updateTypeMoteur }
+
+simulation_crm_update_produit:
+    path:     /modifer_produit/{id}
+    defaults: { _controller: AppBundle:Default:updateProduit }
+
+simulation_crm_delete_marque:
+    path:     /supprimer_marque/{id}
+    defaults: { _controller: AppBundle:Default:deleteMarque }
+
+simulation_crm_delete_modele:
+    path:     /supprimer_modele/{id}
+    defaults: { _controller: AppBundle:Default:deleteModele }
+
+simulation_crm_delete_cylindree:
+    path:     /supprimer_cylindree/{id}
+    defaults: { _controller: AppBundle:Default:deleteCylindree }
+
+simulation_crm_delete_puissance:
+    path:     /supprimer_puissance/{id}
+    defaults: { _controller: AppBundle:Default:deletePuissance }
+
+simulation_crm_delete_type_moteur:
+    path:     /supprimer_type_moteur/{id}
+    defaults: { _controller: AppBundle:Default:deleteTypeMoteur}
+
+simulation_crm_delete_produit:
+    path:     /supprimer_produit/{id}
+    defaults: { _controller: AppBundle:Default:deletProduit}
+

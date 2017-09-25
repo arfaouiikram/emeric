@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Simulateur de Prêt (Crédit)| </title>
+
+    <!-- Bootstrap -->
+    <link href="{{ asset('/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{ asset('/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{ asset('/nprogress/nprogress.css')}}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{ asset('/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="{{ asset('/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{ asset('/jqvmap/dist/jqvmap.min.css" rel="stylesheet')}}"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{ asset('/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('/css/custom.min.css')}}" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a  class="site_title"><span class="decocase">Simulateur de Prêt (Crédit)</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="{{ asset('images/ikram.jpg')}}" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Bienvenue,</span>
+                        <h2>ISI</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <i class="fa fa-home mr5"></i> Simulateur de Prêt (Crédit)
+            <br><br><br><br><br>
+            <h4 class="panel-title">{{ 'Liste des Simulations'|trans }}</h4>
+            <br>
+            <div class="row">
+                <div class="panel-body">
+                    <div class="col-sm-12" style="padding-left:0px;">
+                        <a href="{{ path('simulation_crm_ajout_simulateur') }}">
+                            <button class="btn btn-info btn-quirk btn-stroke">
+                                {{ 'Ajouter Simulation'|trans }}
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="dataTable1" class="table table-bordered table-striped-col table-hover">
+                        <div class="col-xs-12" style="height:10px;"></div>
+                        <thead>
+                        <tr>
+                            <th>{{ 'Montant du prêt (€)'|trans }}</th>
+                            <th>{{ "Taux d'intérêt annuel (%)"|trans }}</th>
+                            <th>{{ 'Durée du prêt en années'|trans }}</th>
+                            <th>{{ 'Nombre de versements par an'|trans }}</th>
+                            <th>{{ "Date de début de l'emprunt"|trans }}</th>
+                            <th>{{ "Versements supplémentaires facultatifs (€)"|trans }}</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                        </thead>
+                        {% for simulation in pagination %}
+                            <tr>
+                                <td>{{ simulation.montantPret }}</td>
+                                <td>{{ simulation.tauxInterret }}</td>
+                                <td>{{ simulation.nbrAnnee }}</td>
+                                <td>{{ simulation.nbrMois }}</td>
+                                <td>{{ simulation.dateDebut|date('y/m/d') }}</td>
+                                <td>{{ simulation.versementSup }}</td>
+                                <td>
+                                    <ul class="table-options">
+                                        <a href="{{ path('simulation_crm_update_Simulation',{'id': simulation.id}) }}">
+                                            <button class="btn btn-warning btn-xs">Modifier</button>
+                                        </a>
+                                    </ul>
+                                    <ul class="table-options">
+                                        <a href="{{ path('simulation_crm_imp_Simulation',{'id': simulation.id}) }}">
+                                            <button class="btn btn-info btn-xs">Imprimer</button>
+                                        </a>
+                                    </ul>
+                                    <ul class="table-options"><a href="{{ path('simulation_crm_delete_Simulation',{'id':simulation.id}) }}"
+                                                                 onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client?')">
+                                            <button class="btn btn-danger btn-xs">Supprimer</button>
+                                        </a>
+                                    </ul>
+                                    </ul>
+                                    </ul>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../nprogress/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="../Chart.js/dist/Chart.min.js"></script>
+<!-- gauge.js -->
+<script src="../gauge.js/dist/gauge.min.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="../bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="../iCheck/icheck.min.js"></script>
+<!-- Skycons -->
+<script src="../skycons/skycons.js"></script>
+<!-- Flot -->
+<script src="../Flot/jquery.flot.js"></script>
+<script src="../Flot/jquery.flot.pie.js"></script>
+<script src="../Flot/jquery.flot.time.js"></script>
+<script src="../Flot/jquery.flot.stack.js"></script>
+<script src="../Flot/jquery.flot.resize.js"></script>
+<!-- Flot plugins -->
+<script src="../flot.orderbars/js/jquery.flot.orderBars.js"></script>
+<script src="../flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="../flot.curvedlines/curvedLines.js"></script>
+<!-- DateJS -->
+<script src="../DateJS/build/date.js"></script>
+<!-- JQVMap -->
+<script src="../jqvmap/dist/jquery.vmap.js"></script>
+<script src="../jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="../jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<!-- bootstrap-web -->
+<script src="../moment/min/moment.min.js"></script>
+<script src="../bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="../js/custom.min.js"></script>
+
+</body>
+</html>

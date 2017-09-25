@@ -1,0 +1,8 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+kalitys_crm_homepage:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+    host: localhost
